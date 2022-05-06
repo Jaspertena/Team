@@ -1,0 +1,27 @@
+{
+  "name": "jest",
+  "version": "1.0.0",
+  "description": "JavaScript Testing",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jaspertena/Team.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jaspertena/Team/issues"
+  },
+  "homepage": "https://github.com/Jaspertena/Team#readme",
+  "dependencies": {
+    "inquirer": "^8.2.2"
+  },
+  "keywords": [
+    "testing",
+    "Javascript"
+  ]
+}
