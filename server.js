@@ -5,6 +5,8 @@ const Engineer = require("./lib/Engineer")
 const Intern = require("./lib/Intern")
 const Manager = require("./lib/Manager")
 
+let employee = []
+
 const questions = [
     {
         type: "input",
@@ -32,7 +34,6 @@ const questions = [
 function promptUser(){
     inquirer.prompt(questions)
     .then(function(response){
-        console.log(response)
         if(response.role==="Manager"){
             addManager(response)
         }
@@ -48,6 +49,19 @@ function promptUser(){
 
 promptUser()
 
-function addManager(response) {}
-function addEmployee(response) {}
+function addManager(response) { 
+    return inquirer.prompt([
+        {
+            type: "input",
+            name: "officeNumber", 
+            message: "What is your office number?"
+        }
+    ])
+    .then(function(userInput){
+        const manager = new Manager(response.name, response.id, response.email, userInput.officeNumber)
+        console.log(manager)
+        emplouyee.push(manager)
+    })
+}
+function addEngineer(response) {}
 function addIntern(response) {}
