@@ -34,7 +34,7 @@ function internHTML(employee){
 </div>
     `
 }
-function internHTML(employee){
+function engineerHTML(employee){
     return`
     <div class="card w-50">
   <div class="card-body">

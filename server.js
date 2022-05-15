@@ -60,8 +60,55 @@ function addManager(response) {
     .then(function(userInput){
         const manager = new Manager(response.name, response.id, response.email, userInput.officeNumber)
         console.log(manager)
-        emplouyee.push(manager)
+        employee.push(manager)
     })
 }
-function addEngineer(response) {}
-function addIntern(response) {}
+
+function addEngineer(response) {
+    return inquirer.prompt([
+        {
+            type: "input",
+            name: "github", 
+            message: "What is your GitHub username?" 
+        }
+    ])
+    .then(function(userInput){
+        const engineer = new Engineer(response.name, response.id, response.email, userInput.github)
+        console.log(engineer)
+        employee.push(engineer)
+    })
+}
+
+function addIntern(response) {
+    return inquirer.prompt([
+        {
+        type: "input",
+        name: "school", 
+        message: "What is the name of your school?" 
+        }
+    ])
+    .then(function(userInput){
+        const intern = new Intern(response.name, response.id, response.email, userInput.school)
+        console.log(intern)
+        employee.push(intern)
+    })
+}
+const makeHTML = (employees) => {
+    fs.writeFileSync("./utils/index.html", generateHTML(employees), console.log('Yay, your HTML has been generated'));
+}
+
+const empPrompt = () => {
+    return inquirer.prompt([
+        {
+            type: "confirm", 
+            name: "return",
+            message: "Do want to add another employee?",
+        }
+    ])
+    .then(function(userInput) {
+        if (userInput.return){
+            promptUser
+        }
+    })
+}
+
