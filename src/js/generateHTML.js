@@ -1,13 +1,13 @@
 function generate(employees){
-    for(var i=0; i<employees; i++){
+    for(var i=0; i<employees.length; i++){
         if (employees[i].getRole() ==="Manager"){
-            managerHTML(employees[i])
+  return managerHTML(employees[i])
         }
         if (employees[i].getRole() ==="Intern"){
-            internHTML(employee[i])
+         internHTML(employees[i])
         }
         if (employees[i].getRole() ==="Engineer"){
-            engineerHTML(employee[i])
+         engineerHTML(employees[i])
         }
     }
 }
@@ -17,8 +17,9 @@ function managerHTML(employee){
     <div class="card w-50">
   <div class="card-body">
     <h5 class="card-title">MANAGER</h5>
-    <p class="card-text">Manager Details.</p>
-    <a href="#" class="btn btn-primary">Button</a>
+    <p class="card-text"> ${ employee.name }</p>
+    <p class="card-text"> ${ employee.id }</p>
+    <p class="card-text"> ${ employee.email }</p>
   </div>
 </div>
     `
@@ -28,8 +29,10 @@ function internHTML(employee){
     <div class="card w-50">
   <div class="card-body">
     <h5 class="card-title">INTERN</h5>
-    <p class="card-text">Intern Details</p>
-    <a href="#" class="btn btn-primary">Button</a>
+    <p class="card-text"> ${ employee.name }</p>
+    <p class="card-text"> ${ employee.id }</p>
+    <p class="card-text"> ${ employee.email }</p>
+    <p class="card-text">${ employee.school }</p>
   </div>
 </div>
     `
@@ -39,14 +42,19 @@ function engineerHTML(employee){
     <div class="card w-50">
   <div class="card-body">
     <h5 class="card-title">ENGINEER</h5>
-    <p class="card-text">Engineer</p>
-    <a href="#" class="btn btn-primary">Button</a>
+    <p class="card-text"> ${ employee.name }</p>
+    <p class="card-text"> ${ employee.id }</p>
+    <p class="card-text"> ${ employee.email }</p>
+    <p class="card-text"> ${ employee.github }</p>
   </div>
 </div>
     `
 }
 
+
+
 module.exports = (employee) => {
+  // console.log(employee);
   return `<!DOCTYPE html>
   <html lang="en">
   <head>
@@ -57,6 +65,9 @@ module.exports = (employee) => {
   </head>
   <body>
       ${generate(employee)}
+      ${internHTML(employee)}
+      ${internEngineer(employee)}
+
   </body>
   </html>`;
 };

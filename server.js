@@ -62,12 +62,11 @@ function addManager(response) {
     ])
     .then(function(userInput){
         const manager = new Manager(response.name, response.id, response.email, userInput.officeNumber)
-        console.log(manager)
+        // console.log(manager)
         employee.push(manager)
     })
     .then(function(userInput){
         empPrompt(response.empPrompt)
-        employee.push(empPrompt)
     })
 }
 
@@ -86,7 +85,6 @@ function addEngineer(response) {
     })
     .then(function(userInput){
         empPrompt(response.empPrompt)
-        employee.push(empPrompt)
     })
 }
 
@@ -105,11 +103,12 @@ function addIntern(response) {
     })
     .then(function(userInput){
         empPrompt(response.empPrompt)
-        employee.push(empPrompt)
     })
 }
 const makeHTML = (employees) => {
-    fs.writeFileSync("./utils/index.html", makepage(employees), console.log('Yay, your HTML has been generated'));
+    // const makepage = new makepage(res.name, res.id, res.email)
+    fs.writeFileSync("./dist/index.html", makepage(employees), console.log('Yay, your HTML has been generated'));
+    // console.log(employees)
 }
 
 const empPrompt = (response) => {
@@ -121,7 +120,7 @@ const empPrompt = (response) => {
         }
     ])
     .then(function(userInput) {
-        console.log(userInput)
+        // console.log(userInput)
         if (userInput.return){
             promptUser()
         }
