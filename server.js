@@ -4,6 +4,9 @@ const fs = require('fs')
 const Engineer = require("./lib/Engineer")
 const Intern = require("./lib/Intern")
 const Manager = require("./lib/Manager")
+const makepage = require("./src/js/generateHTML")
+
+
 
 let employee = []
 
@@ -62,6 +65,10 @@ function addManager(response) {
         console.log(manager)
         employee.push(manager)
     })
+    .then(function(userInput){
+        empPrompt(response.empPrompt)
+        employee.push(empPrompt)
+    })
 }
 
 function addEngineer(response) {
@@ -76,6 +83,10 @@ function addEngineer(response) {
         const engineer = new Engineer(response.name, response.id, response.email, userInput.github)
         console.log(engineer)
         employee.push(engineer)
+    })
+    .then(function(userInput){
+        empPrompt(response.empPrompt)
+        employee.push(empPrompt)
     })
 }
 
@@ -92,12 +103,16 @@ function addIntern(response) {
         console.log(intern)
         employee.push(intern)
     })
+    .then(function(userInput){
+        empPrompt(response.empPrompt)
+        employee.push(empPrompt)
+    })
 }
 const makeHTML = (employees) => {
-    fs.writeFileSync("./utils/index.html", generateHTML(employees), console.log('Yay, your HTML has been generated'));
+    fs.writeFileSync("./utils/index.html", makepage(employees), console.log('Yay, your HTML has been generated'));
 }
 
-const empPrompt = () => {
+const empPrompt = (response) => {
     return inquirer.prompt([
         {
             type: "confirm", 
@@ -106,9 +121,18 @@ const empPrompt = () => {
         }
     ])
     .then(function(userInput) {
+        console.log(userInput)
         if (userInput.return){
-            promptUser
+            promptUser()
         }
+        else{makeHTML(employee)}        
     })
 }
+
+
+
+
+// makeHTML()
+
+
 
