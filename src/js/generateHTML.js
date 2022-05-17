@@ -14,38 +14,37 @@ function generate(employees){
 
 function managerHTML(employee){
     return`
-    <div class="card w-50">
-  <div class="card-body">
-    <h1 class="card-title">MANAGER</h1>
-    <p class="card-text"> ${ employee.name }</p>
-    <p class="card-text"> ${ employee.id }</p>
-    <p class="card-text"> ${ employee.email }</p>
+    <div class="box">
+  <div>
+    <h1>MANAGER</h1>
+    <p> ${ employee.name }</p>
+    <p> ${ employee.id }</p>
+    <p> ${ employee.email }</p>
   </div>
 </div>
     `
 }
 function internHTML(employee){
     return`
-    <div class="card w-50">
-  <div class="card-body">
-    <h1 class="card-title">INTERN</h1>
-    <p class="card-text"> ${ employee.name }</p>
-    <p class="card-text"> ${ employee.id }</p>
-    <p class="card-text"> ${ employee.email }</p>
-    <p class="card-text">${ employee.school }</p>
+    <div class="box">
+  <div>
+    <h1>INTERN</h1>
+    <p> ${ employee.name }</p>
+    <p> ${ employee.id }</p>
+    <p> ${ employee.email }</p>
+    <p> ${ employee.school }</p>
   </div>
 </div>
     `
 }
 function engineerHTML(employee){
     return`
-    <div class="card w-50">
-  <div class="card-body">
-    <h1 class="card-title">ENGINEER</h1>
-    <p class="card-text"> ${ employee.name }</p>
-    <p class="card-text"> ${ employee.id }</p>
-    <p class="card-text"> ${ employee.email }</p>
-    <p class="card-text"> ${ employee.github }</p>
+  <div>
+    <h1>ENGINEER</h1>
+    <p> ${ employee.name }</p>
+    <p> ${ employee.id }</p>
+    <p> ${ employee.email }</p>
+    <p> ${ employee.github }</p>
   </div>
 </div>
     `
@@ -60,9 +59,8 @@ module.exports = (employee) => {
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="./Main/assets/css/style.css">
-      <title>Team Generator</title>
-  </head>
+      <link rel="stylesheet" href="./scr/css/style.css">
+      </head>
   <body>
       ${generate(employee)}
       ${internHTML(employee)}
