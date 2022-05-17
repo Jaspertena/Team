@@ -7,7 +7,6 @@ const Manager = require("./lib/Manager")
 const makepage = require("./src/js/generateHTML")
 
 
-
 let employee = []
 
 const questions = [
